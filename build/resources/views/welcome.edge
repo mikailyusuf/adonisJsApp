@@ -1,0 +1,46 @@
+@layout('layouts/app')
+@set('title', 'Welcome')
+
+
+@section('content')
+
+<div>
+
+  @each(post in posts)
+
+  <div class="border-2 bg-white w-9/12 my-6">
+    <div class="m-2 flex justify-between">
+      <div class="flex">
+    <a href="/{{post.user.username}}">
+    <img src="{{post.user.avatar}}" class="h-10 w-10 rounded-full border " style="object-fit:cover">
+    </a>
+
+    <p class="mx-4 mt-2">{{post.user.username}}</p>
+      </div>
+  
+      <div>
+        <p class="font-semibold mx-3 tracking-wider">...</p>
+      </div>
+    </div>
+  <img src="{{post.image}}" alt="" style="object-fit: cover;" width="100%" srcset="">
+
+  <div class="p-4">
+    <div class="flex">
+    <a href="/{{post.user.username}}">
+      <p class="font-semibold">{{post.user.username}}</p>
+    </a>
+
+    <p class="mx-4" >{{post.caption}}</p>
+    </div>
+
+    <p class="text-gray-500 text-xs my-5">{{post.createdAt.toFormat('DD')}}</p>
+
+  </div>
+  </div>
+   @endeach
+
+
+
+</div>
+
+@endsection

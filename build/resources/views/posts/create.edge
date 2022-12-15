@@ -1,0 +1,30 @@
+@layout('layouts/app')
+
+@section('content')
+
+<div class="mt-20 bg-white border rounded">
+
+<h1  class="text-center text-2xl my-4">Create New Post</h1>
+<form action="/posts/create" method="post" enctype="multipart/form-data" class="py-4 px-2">
+    <div class=""> 
+        <p class="my-2">Caption</p>
+        <textarea class="border w-full" name="caption" placeholder="Your post caption" rows="4"></textarea>
+
+    @if(flashMessages.has('errors.caption'))
+    <small class="text-xs text-red-600">{{ flashMessages.get("errors.caption")}}</small>
+    @endif
+    </div>
+
+    <div class="my-5">
+        <p class="my-2">Upload  photo</p>
+        <input type="file" name='image' id="image">
+            @if(flashMessages.has('errors.image'))
+            <small class="text-xs text-red-600">{{ flashMessages.get("errors.image")}}</small>
+            @endif
+    </div>
+
+        <input type="submit" value="Create" class="px-2 py-1 bg-blue-500 text-white border rounded">
+</form>
+</div>
+
+@endsection
