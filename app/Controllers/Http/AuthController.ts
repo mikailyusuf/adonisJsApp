@@ -32,7 +32,6 @@ export default class SignupController {
 
         await user.save()
         user.sendVerificationEmail()
-        
         return response.redirect('/profile')
     }
 
@@ -63,7 +62,6 @@ export default class SignupController {
          } catch {
           return response.badRequest('Invalid credentials')
              }
-
         }
     
     public async logout({response,auth} : HttpContextContract) {
